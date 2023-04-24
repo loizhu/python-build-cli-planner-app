@@ -1,4 +1,6 @@
 import csv
+from math import remainder
+from src.reminder import PoliteReminder
 
 def list_reminders():
     f = open("reminders.csv", "r")
@@ -13,7 +15,7 @@ def list_reminders():
         print()
 
 def add_reminder(text):
-
+    reminder = PoliteReminder(text)
     with open('reminders.csv', 'a+', newline='\n') as file:
         writer = csv.writer(file)
         writer.writerow([text])
